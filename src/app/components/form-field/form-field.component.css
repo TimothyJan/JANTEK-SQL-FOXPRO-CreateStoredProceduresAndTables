@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+}
+
+.container-item {
+  display:flex;
+  padding-right: 8px;
+}
+
+.numeric-item {
+  padding-right: 8px;
+}

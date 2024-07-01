@@ -1,0 +1,51 @@
+
+<div class="container">
+  <div class="container-item">
+    <mat-form-field>
+      <mat-label>NAME</mat-label>
+      <input matInput placeholder="Ex. USER">
+  </mat-form-field>
+  </div>
+
+  <div class="container-item">
+    <mat-form-field>
+      <mat-label>TYPE</mat-label>
+      <mat-select (selectionChange)="fieldTypeChanged($event.value)">
+        <mat-option value="BIT">BIT</mat-option>
+        <mat-option value="CHAR">CHAR</mat-option>
+        <mat-option value="DATETIME">DATETIME</mat-option>
+        <mat-option value="INT">INT</mat-option>
+        <mat-option value="NUMERIC">NUMERIC</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="container-item">
+    <div [ngSwitch]="fieldType">
+      <div *ngSwitchCase="'CHAR'">
+        <mat-form-field>
+          <mat-label>Size</mat-label>
+          <input matInput placeholder="Numbers only">
+        </mat-form-field>
+      </div>
+      <div *ngSwitchCase="'NUMERIC'">
+        <mat-form-field  class="numeric-item">
+          <mat-label>Size</mat-label>
+          <input matInput placeholder="Numbers only">
+        </mat-form-field>
+        <mat-form-field  class="numeric-item">
+          <mat-label>Dec</mat-label>
+          <input matInput placeholder="Numbers only">
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button
+  mat-raised-button
+  color="primary"
+  (click)="addNewField()"
+  >
+    Add Field
+</button>
